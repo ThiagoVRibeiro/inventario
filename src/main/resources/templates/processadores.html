@@ -43,16 +43,49 @@
 	<form method="post">
 		<div class="mb-3">
 			<label for="exampleFormControlInput1" class="form-label">Código</label>
-			<input type="text" class="form-control" id="codigo" placeholder="Código" disabled>
+			<input type="text" class="form-control" id="codigo" placeholder="Código" name="id" disabled>
 			<label for="exampleFormControlInput1" class="form-label">Nome</label>
-			<input type="text" class="form-control" id="nomeProcessador" placeholder="Nome do processador">
+			<input type="text" class="form-control" id="nomeProcessador" placeholder="Nome do processador" name="nome">
 			<label for="exampleFormControlInput1" class="form-label">Fabricante</label>
-			<input type="text" class="form-control" id="fabricanteProcessador" placeholder="Fabricante do processador">
+			<input type="text" class="form-control" id="fabricanteProcessador" placeholder="Fabricante do processador" name="fabricante">
 			<label for="exampleFormControlInput1" class="form-label">Modelo</label>
-			<input type="text" class="form-control" id="modeloProcessador" placeholder="Modelo do processador">
+			<input type="text" class="form-control" id="modeloProcessador" placeholder="Modelo do processador" name="modelo">
 			<button type="submit" class="btn btn-primary" style="margin-top: 10px;">Salvar</button>
 		</div>
 	</form>
+	<div>
+		<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Fabricante</th>
+      <th scope="col">Modelo</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Excluir</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+	</div>
 
 	<!--JS-->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

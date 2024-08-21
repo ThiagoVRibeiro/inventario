@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="processador")
@@ -13,8 +14,14 @@ public class ProcessadorModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	
+	@NotBlank
 	private String nome;
+	
+	@NotBlank
 	private String fabricante;
+	
+	@NotBlank
 	private String modelo;
 	
 	

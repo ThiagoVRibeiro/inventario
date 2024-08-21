@@ -14,6 +14,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.inventario.models.ProcessadorModel;
 import com.inventario.service.ProcessadorService;
 
+import jakarta.validation.Valid;
+
 @Controller
 public class ProcessadorController {
 	
@@ -29,14 +31,14 @@ public class ProcessadorController {
 //	}
 	
 	@RequestMapping(value="/processadores", method = RequestMethod.GET)
-	public String getPostProcessadores() {
+	public String getProcessadoresForm() {
 		return "processadores";
 	}
 	
 	@RequestMapping(value="/processadores", method = RequestMethod.POST)
-	public String salvarProcessador(ProcessadorModel processadorModel, BindingResult result, RedirectAttributes attributes) {
+	public String salvarProcessador(@Valid ProcessadorModel processadorModel, BindingResult result, RedirectAttributes attributes) {
 		if(result.hasErrors()) {
-			return "redirect:/processadores";
+			return "redirect:/processadoress";
 		}
 		processadorService.save(processadorModel);
 		return "redirect:/processadores";
