@@ -16,7 +16,7 @@ public class ProcessadorServiceImpl implements ProcessadorService{
 	ProcessadorRepository processadorRepository;
 	
 	@Override
-	public List<ProcessadorModel> findAll() {
+	public List<ProcessadorModel> listarProcessadores() {
 		// TODO Auto-generated method stub
 		return processadorRepository.findAll();
 	}
