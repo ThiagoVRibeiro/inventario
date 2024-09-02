@@ -16,7 +16,6 @@
 		}
 
 		.form-processador {
-			margin-top: 2%;
 			margin-left: 5%;
 			margin-right: 5%;
 		}
@@ -25,6 +24,14 @@
 			margin-top: 2%;
 			margin-left: 5%;
 			margin-right: 5%;
+		}
+
+		.names-input {
+			margin-top: 2%;
+		}
+
+		.btn {
+			margin-top: 2%;
 		}
 	</style>
 </head>
@@ -63,17 +70,17 @@
 	</header>
 	<form method="post" class="form-processador">
 		<div class="mb-3">
-			<label for="exampleFormControlInput1" class="form-label">Código</label>
+			<label for="exampleFormControlInput1" class="form-label names-input">Código</label>
 			<input type="text" class="form-control" id="codigo" placeholder="Código" name="id" disabled>
-			<label for="exampleFormControlInput1" class="form-label">Nome</label>
+			<label for="exampleFormControlInput1" class="form-label names-input">Nome</label>
 			<input type="text" class="form-control" id="nomeProcessador" placeholder="Nome do processador" name="nome">
-			<label for="exampleFormControlInput1" class="form-label">Fabricante</label>
+			<label for="exampleFormControlInput1" class="form-label names-input">Fabricante</label>
 			<input type="text" class="form-control" id="fabricanteProcessador" placeholder="Fabricante do processador"
 				name="fabricante">
-			<label for="exampleFormControlInput1" class="form-label">Modelo</label>
+			<label for="exampleFormControlInput1" class="form-label names-input">Modelo</label>
 			<input type="text" class="form-control" id="modeloProcessador" placeholder="Modelo do processador"
 				name="modelo">
-			<button type="submit" class="btn btn-primary" style="margin-top: 10px;">Salvar</button>
+			<button type="submit" class="btn btn-primary">Salvar</button>
 		</div>
 	</form>
 	<div class="row">
@@ -97,6 +104,29 @@
 					<td><span th:text="${processadores.nome}"></span></td>
 					<td><span th:text="${processadores.fabricante}"></span></td>
 					<td><span th:text="${processadores.modelo}"></span></td>
+					<td>
+						<button class="btn">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+								class="bi bi-pen-fill" viewBox="0 0 16 16">
+								<path
+									d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001" />
+							</svg>
+						</button>
+
+					</td>
+					<td>
+						<a th:href="@{/apagar/{id}(id=${processadores.id})}"
+							th:data-confirm-delete="|Você gostaria de apagar ${processadores.nome}?|"
+							th:onclick="if(!confirm(this.getAttribute('data-confirm-delete'))) return false">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+								class="bi bi-trash-fill" viewBox="0 0 16 16">
+								<path
+									d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
+							</svg>
+							
+						</a>
+
+					</td>
 				</tr>
 			</tbody>
 		</table>
