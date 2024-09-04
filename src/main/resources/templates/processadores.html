@@ -115,7 +115,7 @@
 
 					</td>
 					<td>
-						<a th:href="@{/apagar/{id}(id=${processadores.id})}"
+						<a th:href="@{/processadores/deletar/{id}(id=${processadores.id})}"
 							th:data-confirm-delete="|Você gostaria de apagar ${processadores.nome}?|"
 							th:onclick="if(!confirm(this.getAttribute('data-confirm-delete'))) return false">
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

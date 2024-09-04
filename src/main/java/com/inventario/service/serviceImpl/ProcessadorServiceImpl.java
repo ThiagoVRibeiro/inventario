@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.inventario.exception.ProcessadorNotFoundException;
 import com.inventario.models.ProcessadorModel;
 import com.inventario.repositories.ProcessadorRepository;
 import com.inventario.service.ProcessadorService;
@@ -34,13 +35,24 @@ public class ProcessadorServiceImpl implements ProcessadorService{
 		return processadorRepository.save(processadorModel);
 	}
 	
-	public ProcessadorModel buscarProcessadorPorId(Integer id) {
+	public ProcessadorModel buscarProcessadorPorId(Integer id) throws ProcessadorNotFoundException {
 		Optional<ProcessadorModel> opt = processadorRepository.findById(id);
 		if(opt.isPresent()) {
 			return opt.get();
 		}else {
-			return null;
+			throw new ProcessadorNotFoundException("Processador com id: " + id + " não existe!");
 		}
 	}
 
+	public ProcessadorModel apagarProcessador(Integer id) throws ProcessadorNotFoundException{
+		ProcessadorModel processadorModel = buscarProcessadorPorId(id);
+		processadorRepository.delete(processadorModel);
+		return processadorModel;
+	}
+	
+	public ProcessadorModel deletarProcessador(Integer id) {
+		processadorRepository.deleteById(id);
+		ProcessadorModel processadorModel = null;
+		return processadorModel;
+	}
 }

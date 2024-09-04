@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.inventario.exception.ProcessadorNotFoundException;
 import com.inventario.models.ProcessadorModel;
 import com.inventario.service.ProcessadorService;
+import com.inventario.service.serviceImpl.ProcessadorServiceImpl;
 
 import jakarta.validation.Valid;
 
@@ -55,8 +58,14 @@ public class ProcessadorController {
 	}
 	
 	@GetMapping("/apagar/{id}")
-	public String apagarProcessador(@PathVariable("id") long id) {
-		System.out.println("ID: " + id);
+	public String apagarProcessador(@PathVariable("id") Integer id) throws ProcessadorNotFoundException {
+		ProcessadorService.apagarProcessador(id);
+		return "redirect:/processadores";
+	}
+	
+	@GetMapping("/processadores/deletar/{id}")
+	public String deletarProcessador(@PathVariable Integer id) {
+		processadorService.deletarProcessador(id);
 		return "redirect:/processadores";
 	}
 }
